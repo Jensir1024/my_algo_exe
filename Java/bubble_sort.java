@@ -21,30 +21,30 @@ public class bubble_sort {
         a[n]=temp;
     }
 
-    static void bubble_sort(int[] a,int n){
+    static void bubble_sort(int[] a){
         print_array(a);
-        for(int i= a.length-1;i>1;i--){
+        for(int i= a.length;i>1;i--){
             boolean swap1 = false;
-            for(int j=0;j<i;j++){
-                if(a[j]>a[j+1]){
-                    swap(a,j,j+1);
+            for(int j=1;j<i;j++){
+                if(a[j-1]>a[j]){
+                    swap(a,j-1,j);
                     swap1=true;
                 }
-
             }
             print_array(a);
-            if(!swap1)
+            if(!swap1) {
                 break;
+            }
         }
     }
 
     public static void main(String[] args){
-        int n=10;
+        int n=15;
         int a[] = new int[n];
         for(int i=0;i<n;i++){
             a[i]= 1+(int)(Math.random()*(n-1));
         }
-        bubble_sort(a,n);
+        bubble_sort(a);
     }
 
 }
